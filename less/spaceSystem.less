@@ -1,0 +1,123 @@
+/* Padding */
+/* Margins */
+/* Border */
+/* Width  */
+
+// Spacing scale: keys and corresponding rem values
+@space-keys: 1 2 3 4 5 6 7 8 10 12 16 20 80;
+@space-vals: 0.25 0.5 0.75 1 1.25 1.5 1.75 2 2.5 3 4 5 20;
+
+.generarUtilitario(@prefijo, @regla, @reglas...) { // '' , 'm' , ['margin']
+    .-aplicarPropiedades(@rem, @count) when (@count > 0) { // 0.25,  2
+        @prop: extract(@reglas, @count); //['margin', 1] : 'margin'
+        @{prop}: unit(@rem, rem); // margin: 0.25rem;
+        .-aplicarPropiedades(@rem, @count - 1); // 0.25, 0
+    }
+    .-aplicarPropiedades(@rem, 0) {} // {}
+
+    .-iterarPor(@i) when (@i =< length(@space-keys)) {  // i
+        @key: extract(@space-keys, @i);                 // 1
+        @val: extract(@space-vals, @i);                 //0.25
+
+        .@{prefijo}@{regla}-@{key} {        // .m-1 {
+            // @remValue: @val;
+            .-aplicarPropiedades(@val, length(@reglas)); // 0.25, 1
+        }
+
+        .-iterarPor(@i + 1);
+    }
+    .-iterarPor(@i) when (@i > length(@space-keys)) {}
+
+    .-iterarPor(1);
+}
+
+
+
+// Generate margin utilities
+.generarUtilitario(~'', m, margin);
+.generarUtilitario(~'', mt, margin-top);
+.generarUtilitario(~'', mb, margin-bottom);
+.generarUtilitario(~'', ml, margin-left);
+.generarUtilitario(~'', mr, margin-right);
+.generarUtilitario(~'', mx, margin-left, margin-right);
+.generarUtilitario(~'', my, margin-top, margin-bottom);
+
+// Generate padding utilities
+.generarUtilitario(~'', p, padding);
+.generarUtilitario(~'', pt, padding-top);
+.generarUtilitario(~'', pb, padding-bottom);
+.generarUtilitario(~'', pl, padding-left);
+.generarUtilitario(~'', pr, padding-right);
+.generarUtilitario(~'', px, padding-left, padding-right);
+.generarUtilitario(~'', py, padding-top, padding-bottom);
+
+
+@media (min-width: #breakpoints[tablet]) {
+    @prefix : ~'md:';
+    .generarUtilitario(@prefix, m, margin);
+    .generarUtilitario(@prefix, mt, margin-top);
+    .generarUtilitario(@prefix, mb, margin-bottom);
+    .generarUtilitario(@prefix, ml, margin-left);
+    .generarUtilitario(@prefix, mr, margin-right);
+    .generarUtilitario(@prefix, mx, margin-left, margin-right);
+    .generarUtilitario(@prefix, my, margin-top, margin-bottom);
+
+    // Generate padding utilities
+    .generarUtilitario(@prefix, p, padding);
+    .generarUtilitario(@prefix, pt, padding-top);
+    .generarUtilitario(@prefix, pb, padding-bottom);
+    .generarUtilitario(@prefix, pl, padding-left);
+    .generarUtilitario(@prefix, pr, padding-right);
+    .generarUtilitario(@prefix, px, padding-left, padding-right);
+    .generarUtilitario(@prefix, py, padding-top, padding-bottom);
+
+}
+
+@media (min-width: #breakpoints[desktop]) {
+    @prefix : ~'lg:';
+    .generarUtilitario(@prefix, m, margin);
+    .generarUtilitario(@prefix, mt, margin-top);
+    .generarUtilitario(@prefix, mb, margin-bottom);
+    .generarUtilitario(@prefix, ml, margin-left);
+    .generarUtilitario(@prefix, mr, margin-right);
+    .generarUtilitario(@prefix, mx, margin-left, margin-right);
+    .generarUtilitario(@prefix, my, margin-top, margin-bottom);
+
+    // Generate padding utilities
+    .generarUtilitario(@prefix, p, padding);
+    .generarUtilitario(@prefix, pt, padding-top);
+    .generarUtilitario(@prefix, pb, padding-bottom);
+    .generarUtilitario(@prefix, pl, padding-left);
+    .generarUtilitario(@prefix, pr, padding-right);
+    .generarUtilitario(@prefix, px, padding-left, padding-right);
+    .generarUtilitario(@prefix, py, padding-top, padding-bottom);
+
+}
+
+@media (min-width: #breakpoints[wide]) {
+    @prefix : ~'xl:';
+    .generarUtilitario(@prefix, m, margin);
+    .generarUtilitario(@prefix, mt, margin-top);
+    .generarUtilitario(@prefix, mb, margin-bottom);
+    .generarUtilitario(@prefix, ml, margin-left);
+    .generarUtilitario(@prefix, mr, margin-right);
+    .generarUtilitario(@prefix, mx, margin-left, margin-right);
+    .generarUtilitario(@prefix, my, margin-top, margin-bottom);
+
+    // Generate padding utilities
+    .generarUtilitario(@prefix, p, padding);
+    .generarUtilitario(@prefix, pt, padding-top);
+    .generarUtilitario(@prefix, pb, padding-bottom);
+    .generarUtilitario(@prefix, pl, padding-left);
+    .generarUtilitario(@prefix, pr, padding-right);
+    .generarUtilitario(@prefix, px, padding-left, padding-right);
+    .generarUtilitario(@prefix, py, padding-top, padding-bottom);
+}
+
+
+
+
+// Margin auto helpers (common utility)
+.m-auto { margin: auto !important; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.my-auto { margin-top: auto !important; margin-bottom: auto !important; }

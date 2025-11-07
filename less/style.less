@@ -1,0 +1,31 @@
+@import 'variables.less';
+@import 'flexSystem.less';
+@import 'spaceSystem.less';
+@import 'gridSystem.less';
+
+* {
+    box-sizing: border-box;
+}
+:root {
+    --primary-color: @background-primary;
+    --secondary-color: @background-secondary;
+}
+html{
+    height:100%;
+}
+body {
+    height: 100%;
+    padding:0px;
+    margin:0px;
+    .flex();
+    .flex-col();
+}
+@import "header.less";
+main{
+    flex:1;
+}
+@import "heropanel.less";
+@import "cards.less";
+footer{
+    background-color: @background-primary;
+}

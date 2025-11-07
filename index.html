@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pw2handlebarsless</title>
+    <link rel="stylesheet" href="less/style.less" />
+  </head>
+  <body>
+    <!-- Aqui ya valio el header -->
+     {{>header}}
+    <main>
+      {{>hero
+        imgDesktop="https://picsum.photos/id/123/1200/640"
+        imgTablet="https://picsum.photos/id/123/1024/640"
+        imgMobile="https://picsum.photos/id/123/480/480"
+        imgAlt="Hero de Index.html"
+        titulo="Café de Marcala con Pimienta Negra Gourmet Grano Oro"
+        descripcion="Prueba nuestro nuevo producto, semillas seleccionadas a mano por catadores internacionales y secado en hornos solares y tostado con maderos aromáticos."
+        accion="Buy"
+      }}
+      {{>hero
+        imgDesktop="https://picsum.photos/id/23/1200/640"
+        imgTablet="https://picsum.photos/id/23/1024/640"
+        imgMobile="https://picsum.photos/id/23/480/480"
+        imgAlt="Hero 2 de Index.html"
+        titulo="Café Brazileño"
+        descripcion="Ni el equipo de Futbol tiene tantos mundiales."
+        accion="Acerca"
+      }}
+
+      {{>imgGallery}}
+      <section class="grid">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-3 p-4">Columna 1</div>
+          <div class="col-12 col-md-6 col-lg-3 p-4">Columna 2</div>
+          <div class="col-12 col-md-6 col-lg-3 p-4">Columna 3</div>
+          <div class="col-12 col-md-6 col-lg-3 p-4">Columna 4</div>
+        </div>
+      </section>
+    </main>
+   {{>footer}}
+  </body>
+</html>

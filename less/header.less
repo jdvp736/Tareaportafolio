@@ -1,0 +1,87 @@
+header {
+    .flex();
+    .flex-col();
+    background-color: @background-primary;
+    color: @text-primary;
+    @media (min-width: #breakpoints[tablet]) {
+        .flex-row();
+        .justify-between();
+        .items-center();
+    }
+    .branding {
+        .flex();
+        .flex-row();
+        .flex-grow();
+        .items-center();
+        .gap-2();
+        padding:0px 1rem;
+        @media (min-width: #breakpoints[tablet]) {
+            .flex-grow-0();
+        }
+        h1 {
+            margin:0px;
+            font-size: 1.25rem;
+            width:max-content;
+        }
+        img {
+            height:48px;
+            object-fit: cover;
+        }
+    }
+    .searchbar{
+        width:100%;
+        padding:0.25rem 0.75rem;
+        @media (min-width: #breakpoints[tablet]){
+            padding:0.25rem 1.5rem;
+        }
+        form {
+            .flex();
+            .items-center();
+            .gap-2();
+            width:100%;
+        }
+        input {
+            flex:1;
+            padding:0.25rem 0.5rem;
+            border:none;
+            border-radius: 27px;
+        }
+        button {
+            display:inline-block;
+            border:none;
+            padding:0.25rem 0.5rem;
+            border-radius: 27px;
+        }
+    }
+    nav {
+        ul {
+            .flex();
+            .flex-col();
+            .gap-2();
+            list-style:none;
+            padding:0px;
+            margin:0px;
+            @media (min-width:#breakpoints[tablet]) {
+                .flex-row();
+            }
+            li {
+                a{
+                    color:@text-primary;
+                    text-decoration: none;
+                    display:inline-block;
+                    padding:0.5rem 0.75rem;
+                    background-color: @background-primary;
+                    transition: all 0.5s ease-in-out;
+                    &:hover{
+                        background-color: @background-secondary;
+                        color:@text-secondary;
+                    }
+                    &.active {
+                        background-color: @background-secondary;
+                        color:#333;
+                    }
+                }
+            }
+        }
+    }
+}

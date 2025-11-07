@@ -1,0 +1,28 @@
+.generarGrilla( @prefijo, @columnas, @iteracion : 1)
+    when (@iteracion =< @columnas)
+{
+    @selectorColumna : ~'.col-@{prefijo}@{iteracion}';
+    @ancho : (100% / @columnas * @iteracion);
+    @{selectorColumna} {flex-basis: @ancho;}
+    .generarGrilla(@prefijo, @columnas, (@iteracion+1));
+}
+
+.grid {
+    .row {
+        .flex();
+        .flex-wrap();
+        [class*='col-'] {
+            flex: 0, 0;
+        }
+        .generarGrilla('', 12);
+        @media (min-width: #breakpoints[tablet]){
+            .generarGrilla(~'md-', 12);
+        }
+        @media (min-width: #breakpoints[desktop]){
+            .generarGrilla(~'lg-', 12);
+        }
+        @media (min-width: #breakpoints[wide]){
+            .generarGrilla(~'xl-', 12);
+        }
+    }
+}

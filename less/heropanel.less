@@ -1,0 +1,56 @@
+#hero-heights {
+    small: 480px;
+    medium: 640px;
+    large: 725px;
+}
+
+.hero-panel {
+    margin:0px;
+    padding:0px;
+    width:100%;
+    &.small {
+        height: #hero-heights[small];
+    }
+    &.medium {
+        height: #hero-heights[medium];
+    }
+    &.large {
+        height: #hero-heights[large];
+    }
+    overflow: hidden;
+    position:relative;
+    .full-image {
+        width:100vw;
+        height:100%;
+        object-fit: cover;
+        object-position: bottom;
+        top:0px;
+        left:0px;
+    }
+    .hero-action {
+        position:absolute;
+        background-color: fadeout(@background-secondary, 25%);
+        padding:1rem;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        border-radius: 17px;
+        .flex();
+        .flex-col();
+        .gap-4();
+        .title {
+            font-weight: bolder;
+            font-size: 3rem;
+        }
+        .content {
+            padding:1rem;
+        }
+        .action-button{
+            border:none;
+            box-shadow: 1px 1px 3px 0px @background-primary;
+            font-weight: bold;
+            padding: 0.75rem 1rem;
+            border-radius: 7px;
+        }
+    }
+}

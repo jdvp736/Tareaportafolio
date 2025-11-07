@@ -1,0 +1,20 @@
+<header>
+    <section class="branding">
+        <img src="https://picsum.photos/128/64" alt="Logo" />
+        <h1>Historias de un Café</h1>
+    </section>
+    <section class="searchbar">
+        <form action="#searchUri" method="get">
+            <label for="busqueda">Buscar</label>
+            <input type="text" placeholder="Buscar" name="busqueda" id="busqueda">
+            <button type="submit" name="buscar">Buscar</button>
+        </form>
+    </section>
+    <nav>
+        <ul>
+            <li><a href="#">Categorías</a></li>
+            <li><a href="gourmet.html" {{#if gourmetActivePage}} class="active" {{/if}}>Gourmet</a></li>
+            <li><a href="contactanos.html" {{#if contactanosActivePage}} class="active" {{/if}}>Contactanos</a></li>
+        </ul>
+    </nav>
+</header>

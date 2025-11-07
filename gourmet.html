@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactanos</title>
+        <link rel="stylesheet" href="less/style.less" />
+</head>
+<body>
+     {{>header gourmetActivePage=true}}
+    <main>
+       {{>hero
+        imgDesktop="https://picsum.photos/id/12/1200/640"
+        imgTablet="https://picsum.photos/id/12/1024/640"
+        imgMobile="https://picsum.photos/id/12/480/480"
+        imgAlt="Hero de Gourmet.html"
+        titulo="Café Kopi Luwak"
+        descripcion="Prueba el café mas caro del mundo."
+        accion="Atrévete"
+      }}
+      {{>cardsContainer cardsCollection=gourmetCoffeeProducts}}
+    </main>
+    {{>footer}}
+</body>
+</html>
