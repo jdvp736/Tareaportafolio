@@ -34,7 +34,7 @@ function obtenerEntradas(){
 export default defineConfig(
     {
         appType: 'mpa',
-        base: process.env.DEPLOY_BASE_URL ,
+        base:  '/Tareaportafolio/',
         build: {
             minify: true,
             rollupOptions: {
